@@ -2436,7 +2436,11 @@ public final class JSONScanner extends JSONLexerBase {
                 }
                 bracketCnt++;
 
-                // Solve Issue #4069, which is caused by ignoring the situation that contend more arrays in one array.
+                /*
+                * @param index : the index of char which is pointing
+                * @method skipArray : skip the array object in the String
+                * Fix Issue #4069, link:https://github.com/alibaba/fastjson/issues/4069
+                * */
                 {
                     int index = ++bp;
                     this.ch = (index >= text.length() //

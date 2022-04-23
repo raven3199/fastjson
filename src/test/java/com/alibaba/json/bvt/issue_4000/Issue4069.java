@@ -6,6 +6,7 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 public class Issue4069 extends TestCase {
+    // Fix Issue #4069, link:https://github.com/alibaba/fastjson/issues/4069
     @Test
     public void test_for_issue4069_0() {
         String json_string = "[[{\"value\": \"aaa\",\"key\": \"input_aKLYFkHNhPk0\"},{\"value\": \"222\",\"key\": \"number_pPvGTENKofUM\"}]," +

@@ -229,8 +229,13 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                         out.write(',');
                     }
 
+                    /*
+                    * @param entryKey : the key of the map object
+                    * Fix Issue #4009， link: https://github.com/alibaba/fastjson/issues/4009
+                    * */
                     if ((out.isEnabled(NON_STRINGKEY_AS_STRING) || SerializerFeature.isEnabled(features, SerializerFeature.WriteNonStringKeyAsString))
-                            && !(entryKey instanceof Enum)) {
+                            && !(entryKey instanceof Enum)
+                            && !(entryKey instanceof UUID)) {
                         String strEntryKey = JSON.toJSONString(entryKey);
                         serializer.write(strEntryKey);
                     } else {
